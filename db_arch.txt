@@ -1,0 +1,24 @@
+create table users(id INTEGER,
+	user TEXT(32),
+	pass TEXT(32));
+	
+insert into users values(1,'admin','1a1dc91c907325c69271ddf0c944bc72');
+
+CREATE TABLE genre_list (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    movie_id INTEGER,
+    FOREIGN KEY (movie_id) REFERENCES Ratings (id)
+);
+
+CREATE TABLE Ratings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    director TEXT,
+    popularity REAL,
+    imdb_score REAL
+);
+
+
+insert into Ratings(name,director,popularity,imdb_score) values('nam','direc',55.3,2.5);
+insert into genre_list(title,movie_id) values('act',2);

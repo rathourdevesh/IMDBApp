@@ -1,0 +1,72 @@
+Create:-
+url - http://127.0.0.1:5000/imdbapp/add
+method - POST
+header - Content-Type : application/json
+data - 
+{
+    "username":"admin",
+    "password":"pass",
+    "popularity": 83.0,
+    "director": "Victor Fleming",
+    "genre": [
+      "Adventure",
+      " Family",
+      " Fantasy",
+      " Musical"
+    ],
+    "imdb_score": 8.3,
+    "name": "The Wizard of Oz"
+  }
+  
+curl command - 
+	curl -X POST \
+	   --header "Content-Type: application/json" \
+	   --data '{"username":"admin","password":"pass","popularity": 88.0,"director": "George Lucas", "genre": ["Action","Adventure"," Fantasy"," Sci-Fi"],"imdb_score": 8.8,  "name": "Star Wars" }' \
+	  http://127.0.0.1:5000/imdbapp/add
+
+----------------------------------------------------------------------
+Modify - 
+url - http://127.0.0.1:5000/imdbapp/modify
+method - PUT
+header - Content-Type : application/json
+data - 
+{
+    "username":"admin",
+    "password":"pass",
+    "id":2,
+    "fieldName":"name",
+    "fieldValue":"star trek"
+}
+
+curl command - 
+	curl -X PUT \
+	   --header "Content-Type: application/json" \
+	   --data '{"username":"admin","password":"pass","id": 2 ,"fieldName":"name","fieldValue":"star war"}' \
+	  http://127.0.0.1:5000/imdbapp/modify
+
+
+----------------------------------------------------------------------
+Delete -
+url - http://127.0.0.1:5000/imdbapp/remove/<movieId> 
+method - DELETE
+header - Content-Type : application/json
+data - 
+{
+    "username":"admin",
+    "password":"pass"
+}
+curl command - 
+	curl -X DELETE \
+	   --header "Content-Type: application/json" \
+	   --data '{"username":"admin","password":"pass"}'
+	   http://127.0.0.1:5000/imdbapp/remove/2
+
+----------------------------------------------------------------------
+Search Movies - 
+url - http://127.0.0.1:5000/imdbapp/search/movie/<movieName> 
+method - GET
+curl command - 
+	curl -X GET http://127.0.0.1:5000/imdbapp/search/movie/wizard
+	   
+
+
